@@ -28,21 +28,22 @@
 
     <build>
         <plugins>
-            <!-- Each module folder is a source root, keeping its runnable code beside its lesson. -->
+            <!-- Treat the JDBC project directory as the source root.
+                 Module Java files stay beside their lessons. -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>3.6.1</version>
                 <executions>
                     <execution>
-                        <id>add-module-01-source</id>
+                        <id>add-jdbc-project-source</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>add-source</goal>
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.basedir}/module-01</source>
+                                <source>${project.basedir}</source>
                             </sources>
                         </configuration>
                     </execution>
