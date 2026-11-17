@@ -2,7 +2,7 @@
 
 A practical, code-first learning repository for understanding relational databases and how Java applications interact with them.
 
-Each learning track is kept separate. Java-based tracks have their own Maven project, dependencies, source tree, and entry points. SQL stays focused on SQL scripts and exercises; it does not need an artificial Java `Main` class.
+Each learning track is kept separate. Java-based tracks have their own Maven project and dependencies. SQL stays focused on SQL scripts and exercises; it does not need an artificial Java `Main` class.
 
 ## Learning tracks
 
@@ -17,19 +17,23 @@ Each learning track is kept separate. Java-based tracks have their own Maven pro
 
 ```text
 java-database-internals/
-├── pom.xml                 # Maven parent / aggregator
-├── compose.yaml            # Shared MariaDB lab database
+├── pom.xml
+├── compose.yaml
 ├── .env.example
-├── jdbc/                   # Independent JDBC Maven project
+├── jdbc/
 │   ├── pom.xml
-│   ├── src/main/java/
 │   ├── module-01/
+│   │   ├── Main.java
 │   │   ├── README.md
 │   │   └── exercise/
-│   └── ...
-├── sql/                    # SQL notes, scripts, and exercises
-├── orm/                    # Planned independent Java project
-└── hibernate/               # Planned independent Java project
+│   │       └── README.md
+│   ├── module-02/
+│   │   └── ... (added as we study each module)
+│   └── src/main/java/com/sabeer/database/config/
+│       └── DatabaseConfig.java
+├── sql/
+├── orm/
+└── hibernate/
 ```
 
 ## Requirements
@@ -103,7 +107,7 @@ docker compose down -v
 ## Principles
 
 - Keep each learning track independently buildable.
-- Keep each module's explanation and exercises beside that module.
+- Keep each module's explanation, runnable example, and exercises together.
 - Keep runnable examples small and focused.
 - Inspect actual SQL and database effects rather than relying only on output.
 - Avoid premature abstractions; introduce patterns when they solve a demonstrated problem.
