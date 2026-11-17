@@ -26,9 +26,9 @@ mvn -pl jdbc exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module01.Main"
 - `Main.java` — runnable Module 01 example, kept beside this README.
 - `exercise/README.md` — practical exercises for this module.
 
-Shared configuration remains in the JDBC project's conventional source tree:
+Shared JDBC configuration is kept at the project root:
 
-- `jdbc/src/main/java/com/sabeer/database/config/DatabaseConfig.java`
+- `jdbc/DatabaseConfig.java`
 
 Dependencies and Maven source registration are in `jdbc/pom.xml`.
 
