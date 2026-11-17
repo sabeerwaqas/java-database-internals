@@ -21,11 +21,16 @@ mvn -pl jdbc -am compile
 mvn -pl jdbc exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module01.Main"
 ```
 
-## Code
+## Files in this module
 
-- Entry point: `jdbc/src/main/java/com/sabeer/database/jdbc/module01/Main.java`
-- Shared JDBC configuration: `jdbc/src/main/java/com/sabeer/database/config/DatabaseConfig.java`
-- Dependencies and run configuration: `jdbc/pom.xml`
+- `Main.java` — runnable Module 01 example, kept beside this README.
+- `exercise/README.md` — practical exercises for this module.
+
+Shared configuration remains in the JDBC project's conventional source tree:
+
+- `jdbc/src/main/java/com/sabeer/database/config/DatabaseConfig.java`
+
+Dependencies and Maven source registration are in `jdbc/pom.xml`.
 
 ## Expected observations
 
