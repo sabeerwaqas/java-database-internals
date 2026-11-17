@@ -22,6 +22,7 @@ java-database-internals/
 ├── .env.example
 ├── jdbc/
 │   ├── pom.xml
+│   ├── DatabaseConfig.java
 │   ├── module-01/
 │   │   ├── Main.java
 │   │   ├── README.md
@@ -29,8 +30,7 @@ java-database-internals/
 │   │       └── README.md
 │   ├── module-02/
 │   │   └── ... (added as we study each module)
-│   └── src/main/java/com/sabeer/database/config/
-│       └── DatabaseConfig.java
+│   └── ...
 ├── sql/
 ├── orm/
 └── hibernate/
