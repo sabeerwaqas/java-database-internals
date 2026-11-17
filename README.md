@@ -21,7 +21,7 @@ This repository focuses on **small runnable examples**, concise notes, and exerc
 4. Inspect the SQL and output.
 5. Complete the small exercise before moving on.
 
-Examples will build around a shared booking domain so we can compare direct JDBC code with ORM-based persistence later.
+Examples build around a shared booking domain so we can compare direct JDBC code with ORM-based persistence later.
 
 ## Requirements
 
@@ -50,33 +50,23 @@ docker compose up -d
 docker compose ps
 ```
 
-MariaDB is exposed on `localhost:3306`. The initialization script creates the sample `bookings` table and inserts a few rows when the database volume is first initialized.
+MariaDB is exposed on `localhost:4000` (host port 4000 mapped to container port 3306). This avoids conflicting with a local MySQL/MariaDB instance using the default host port.
 
-> The initialization script runs only when MariaDB creates a fresh data directory. If you change it after the first startup, `docker compose down -v` removes the lab database volume so it can be initialized again. This deletes the data stored in that volume.
+The initialization script creates the sample `bookings` table and inserts sample rows when the database volume is first initialized.
 
-## Run the current JDBC example
+> The initialization script runs only when MariaDB creates a fresh data directory. Changing it after first startup does not rerun it. Avoid `docker compose down -v` unless you intentionally want to delete the persisted lab database.
 
-Set the connection variables in the same terminal where you run Maven.
+## Run a JDBC module
 
-**macOS / Linux**
+Start MariaDB and run an individual module by specifying its main class.
+
+**Module 1 — Connection and architecture**
 
 ```bash
-export DB_URL="jdbc:mariadb://localhost:3306/java_database_lab"
-export DB_USERNAME="lab_user"
-export DB_PASSWORD="lab_password"
-mvn compile exec:java
+mvn compile exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module01.ConnectionDemo"
 ```
 
-**Windows PowerShell**
-
-```powershell
-$env:DB_URL = "jdbc:mariadb://localhost:3306/java_database_lab"
-$env:DB_USERNAME = "lab_user"
-$env:DB_PASSWORD = "lab_password"
-mvn compile exec:java
-```
-
-These credentials are for the local learning environment only. Do not reuse them in a deployed application.
+The database configuration is loaded from the root `.env` file. Environment variables override values from `.env`. The default host and port are `localhost:4000`; you can override them with `DB_HOST` and `DB_PORT`.
 
 ## Stop the database
 
@@ -84,7 +74,9 @@ These credentials are for the local learning environment only. Do not reuse them
 docker compose down
 ```
 
-To also delete the persisted lab data:
+This stops the container but preserves the named database volume.
+
+To also delete the persisted lab data (destructive):
 
 ```bash
 docker compose down -v
