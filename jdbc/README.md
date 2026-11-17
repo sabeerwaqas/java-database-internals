@@ -21,25 +21,20 @@ Each module keeps its explanation, runnable Java entry point, and exercises toge
 
 ```text
 jdbc/
+├── DatabaseConfig.java
 ├── module-01/
 │   ├── Main.java
 │   ├── README.md
 │   └── exercise/
 │       └── README.md
 ├── module-02/
-│   ├── Main.java       # added when this module is introduced
-│   ├── README.md
-│   └── exercise/
-│       └── README.md
-├── ...
-├── src/main/java/com/sabeer/database/config/
-│   └── DatabaseConfig.java
+│   └── ... (added as we study it)
 └── pom.xml
 ```
 
-The module folders are registered as Maven source roots in `pom.xml`. This lets each module's runnable code stay beside its lesson instead of creating a second, deeply nested Java directory tree. Java classes still declare a unique package per module.
+The JDBC project directory is registered as a Maven source root. This keeps each module's runnable code beside its lesson without a separate nested Java source tree. Java classes still declare unique packages, so module entry points do not conflict.
 
-Shared configuration stays in the conventional Maven source tree because it is reused by multiple modules.
+`DatabaseConfig.java` contains settings shared by the JDBC modules. It lives directly in the project root to avoid another directory hierarchy.
 
 We add a module's `Main.java` when we reach it; there are no empty placeholder classes.
 
