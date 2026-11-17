@@ -1,6 +1,6 @@
 package com.sabeer.database.jdbc.module01;
 
-import com.sabeer.database.config.DatabaseConfig;
+import com.sabeer.database.jdbc.DatabaseConfig;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
