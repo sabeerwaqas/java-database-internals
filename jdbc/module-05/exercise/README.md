@@ -1,9 +1,6 @@
-# Module 05 — Exercises
-
-1. Disable auto-commit.
-2. Execute two related writes.
-3. Commit and verify both changes.
-4. Repeat but force a controlled failure between the writes.
-5. Roll back and verify that neither write remains.
-
-Use test records and verify the database state after each run.
+# Module 05 Exercises
+1. Explain why auto-commit is disabled before two transfer updates.
+2. Identify what happens if debit succeeds but credit fails without a transaction.
+3. Test commit and rollback only in the disposable lab DB; restore rollback behavior afterward.
+4. Explain atomicity in the transfer scenario.
+5. Validate that transfer amount is positive and that insufficient funds prevent the debit.
