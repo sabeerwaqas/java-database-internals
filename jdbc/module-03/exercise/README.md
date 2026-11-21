@@ -1,7 +1,6 @@
-# Module 03 — Exercises
-
-1. Query all bookings and iterate through the `ResultSet`.
-2. Read columns by label rather than numeric index.
-3. Map the booking amount to `BigDecimal`.
-4. Explain why `double` is not the preferred representation for monetary values.
-5. Check how JDBC represents SQL NULL values for primitive and object getters.
+# Module 03 Exercises
+1. Add a column label to output and explain why label-based reads are maintainable.
+2. Print ResultSetMetaData column labels and SQL types.
+3. Explain why `next()` is required before reading.
+4. Test nullable fields if available. Explain SQL NULL versus Java null and how `wasNull()` works.
+5. Map money to `BigDecimal`; explain why binary floating-point is unsuitable for exact decimal currency.
