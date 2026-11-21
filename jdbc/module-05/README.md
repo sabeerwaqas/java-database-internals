@@ -1,22 +1,22 @@
 # Module 05 — Transactions
 
-**Goal:** group multiple database operations into one atomic unit of work.
+**Goal:** understand atomicity, commit, rollback, and JDBC auto-commit.
+
+The demo creates a dedicated `jdbc_tx_accounts` table if absent, initializes two lab accounts, performs a transfer-like update inside a transaction, and rolls it back. This is isolated from bookings.
+
+## Run
+```bash
+docker compose up -d
+mvn -pl jdbc -am compile
+mvn -pl jdbc exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module05.Main"
+```
 
 ## Concepts
+- Auto-commit normally commits each statement independently.
+- Disable auto-commit to group statements.
+- Commit persists the unit; rollback discards it.
+- Transactions should preserve invariants (for example, transfer balances).
+- Roll back on failures.
 
-- JDBC connections use auto-commit by default.
-- Use `setAutoCommit(false)` to begin an explicit transaction.
-- Use `commit()` to persist the unit of work or `rollback()` to undo it.
-- Keep transactions focused and short.
-
-## Code
-
-Entry point: `jdbc/src/main/java/com/sabeer/database/jdbc/module05/Main.java` (to be added in this module).
-
-## Exercise
-
+## Exercises
 See [exercise/README.md](./exercise/README.md).
-
-## Article
-
-Article link will be added when published.
