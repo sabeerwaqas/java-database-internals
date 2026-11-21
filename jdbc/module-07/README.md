@@ -1,22 +1,21 @@
-# Module 07 — Exception and resource management
+# Module 07 — Exception and Resource Management
 
-**Goal:** handle JDBC failures and release database resources reliably.
+**Goal:** handle SQL failures and release JDBC resources reliably.
 
 ## Concepts
+- Database errors are reported through `SQLException`.
+- Inspect SQLState and vendor error code for diagnostics; don't parse messages as logic.
+- try-with-resources closes resources even when an exception occurs.
+- Nested resources close in reverse order.
+- Preserve causes when wrapping exceptions; don't silently swallow errors.
+- Roll back explicitly when a transaction fails.
 
-- Close `Connection`, `Statement`, and `ResultSet` resources.
-- Prefer try-with-resources.
-- Inspect `SQLException` message, SQL state, and vendor error code.
-- Do not swallow exceptions or log credentials.
+## Run
+```bash
+mvn -pl jdbc -am compile
+mvn -pl jdbc exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module07.Main"
+```
+The sample intentionally queries a nonexistent table to show diagnostics; it does not modify data.
 
-## Code
-
-Entry point: `jdbc/src/main/java/com/sabeer/database/jdbc/module07/Main.java` (to be added in this module).
-
-## Exercise
-
+## Exercises
 See [exercise/README.md](./exercise/README.md).
-
-## Article
-
-Article link will be added when published.
