@@ -1,22 +1,21 @@
-# Module 06 — Batch processing and generated keys
+# Module 06 — Batch Processing and Generated Keys
 
-**Goal:** execute groups of statements and retrieve generated database identifiers.
+**Goal:** execute repeated inserts efficiently and retrieve generated keys.
+
+The sample uses an isolated `jdbc_batch_demo` table, batches inserts, prints generated keys, then rolls back the rows.
+
+## Run
+```bash
+docker compose up -d
+mvn -pl jdbc -am compile
+mvn -pl jdbc exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module06.Main"
+```
 
 ## Concepts
+- Batch execution can reduce repeated client/server overhead; driver behavior varies.
+- `addBatch()` queues parameter sets; `executeBatch()` returns update counts.
+- Generated-key support for batches varies. Inspect actual driver behavior.
+- Rollback keeps the demonstration repeatable.
 
-- Add parameter sets with `addBatch()`.
-- Execute them with `executeBatch()`.
-- Inspect returned update counts and batch failure behavior.
-- Request generated keys when inserting auto-increment rows.
-
-## Code
-
-Entry point: `jdbc/src/main/java/com/sabeer/database/jdbc/module06/Main.java` (to be added in this module).
-
-## Exercise
-
+## Exercises
 See [exercise/README.md](./exercise/README.md).
-
-## Article
-
-Article link will be added when published.
