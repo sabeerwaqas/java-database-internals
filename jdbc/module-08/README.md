@@ -1,23 +1,20 @@
-# Module 08 — DAO and connection pooling
+# Module 08 — DAO and Connection Pooling
 
-**Goal:** separate persistence code from application logic and understand connection reuse.
+**Goal:** separate persistence code from application logic and understand why applications use DataSource and connection pools.
 
 ## Concepts
+- DAO separates persistence operations from callers.
+- Keep SQL and row mapping in the DAO; orchestration outside it.
+- `DataSource` is the preferred connection-factory abstraction.
+- Connection pools reuse physical connections, reducing connection setup overhead. Pool lifecycle and sizing are operational decisions.
+- This runnable sample demonstrates DAO separation using `BookingDao`. It uses `DriverManager` to keep the project dependency-free; **it is not a connection pool**. Pooling is explained rather than falsely implemented.
 
-- A DAO groups database operations behind an application-focused API.
-- Keep SQL and row mapping out of unrelated business logic.
-- A connection pool reuses managed physical connections.
-- Production applications generally use a configured `DataSource`.
-- Close borrowed connections so the pool can return them to circulation.
+## Run
+```bash
+docker compose up -d
+mvn -pl jdbc -am compile
+mvn -pl jdbc exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module08.Main"
+```
 
-## Code
-
-Entry point: `jdbc/src/main/java/com/sabeer/database/jdbc/module08/Main.java` (to be added in this module).
-
-## Exercise
-
+## Exercises
 See [exercise/README.md](./exercise/README.md).
-
-## Article
-
-Article link will be added when published.
