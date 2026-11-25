@@ -1,32 +1,27 @@
 # Hibernate — Practical ORM Learning Track
 
-A practical track for learning Hibernate ORM with Spring Boot, Jakarta Persistence (JPA), and SQL inspection. Examples are original learning alternatives and use the repository's shared booking database where appropriate. No employer/client source code is included.
+A practical track for learning Hibernate ORM with Jakarta Persistence (JPA), Spring Boot configuration, and SQL inspection. Examples are original learning alternatives and use the repository's shared booking table where appropriate. No employer/client source code is included.
 
 ## Modules
-
-1. [Module 01 — ORM, setup & entity mapping](./module-01/README.md) — ORM trade-offs, JPA/Hibernate/Spring roles, configuration, entity mapping, CRUD, schema management.
-2. [Module 02 — Persistence context & entity lifecycle](./module-02/README.md) — EntityManager, managed state, identity map, transient/managed/detached/removed, merge.
-3. [Module 03 — Transactions, dirty checking & flush](./module-03/README.md) — transaction boundaries, @Transactional, write-behind, flush vs commit.
+1. [ORM, setup & entity mapping](./module-01/README.md) — ORM trade-offs, JPA/Hibernate/Spring roles, configuration, entity mapping and CRUD.
+2. [Persistence context & entity lifecycle](./module-02/README.md) — EntityManager, managed state, identity map, transient/managed/detached/removed and merge.
+3. [Transactions, dirty checking & flush](./module-03/README.md) — transaction boundaries, dirty checking, write-behind, flush vs commit.
 
 ## Shared lab domain
+The lab schema is `bookings(id, customer_name, amount)`. It keeps examples intentionally small and makes generated SQL easier to inspect. The shared MariaDB container and root environment configuration are described in the [root README](../README.md).
 
-The existing lab schema includes `bookings(id, customer_name, amount)`. This small domain is used to illustrate mappings and persistence behavior. The shared MariaDB container and root environment configuration are described in the repository's [root README](../README.md).
-
-## Learning approach
-
-- Pair every ORM concept with the SQL/database behavior it affects.
-- Inspect generated SQL; Hibernate does not eliminate the need to understand SQL.
-- Use original examples and safe local data.
-- Avoid destructive schema-generation settings against valuable databases. Prefer migration scripts for schema evolution.
-- Modules are learning notes and exercises, not claims of production implementation or employer-owned work.
+## Learning principles
+- Pair ORM behavior with the SQL it affects.
+- Inspect generated SQL; Hibernate does not replace SQL knowledge.
+- Use original examples and local test data.
+- Avoid destructive schema-generation settings against valuable databases; use migrations for schema evolution.
+- Treat this as a learning track, not a claim of production implementation or employer-owned work.
 
 ## Prerequisites
-
 - Java and basic OOP
 - SQL and relational modeling
 - JDBC fundamentals
 - Spring Boot basics and dependency injection
 
 ## Status
-
-The initial learning modules are documented. Runnable Hibernate examples will be added incrementally and should be verified against the project build before being described as implemented.
+The first three conceptual modules are documented. Runnable Hibernate code is added incrementally and must be verified against the build before being described as implemented.
