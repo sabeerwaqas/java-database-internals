@@ -11,7 +11,7 @@ Each learning track is kept separate. Java-based tracks have their own Maven pro
 | [JDBC](./jdbc/README.md) | Direct database access using the JDBC API | [jdbc/](./jdbc/) |
 | [SQL & Databases](./sql/README.md) | SQL, joins, constraints, relationships, and schema design | [sql/](./sql/) |
 | [ORM Fundamentals](./orm/README.md) | ORM concepts and persistence behavior | Planned |
-| [Hibernate](./hibernate/README.md) | Hibernate mappings, fetching, and generated SQL | Planned |
+| [Hibernate](./hibernate/README.md) | Hibernate ORM mapping, persistence context, entity lifecycle, transactions, dirty checking and flush | In progress |
 
 ## Repository layout
 
@@ -23,17 +23,14 @@ java-database-internals/
 ├── jdbc/
 │   ├── pom.xml
 │   ├── DatabaseConfig.java
-│   ├── module-01/
-│   │   ├── Main.java
-│   │   ├── README.md
-│   │   └── exercise/
-│   │       └── README.md
-│   ├── module-02/
-│   │   └── ... (added as we study each module)
-│   └── ...
+│   └── module-01/ ... module-08/
 ├── sql/
 ├── orm/
 └── hibernate/
+    ├── README.md
+    ├── module-01/
+    ├── module-02/
+    └── module-03/
 ```
 
 ## Requirements
@@ -65,7 +62,7 @@ docker compose ps
 
 MariaDB is exposed on `localhost:4000` (host port 4000 mapped to container port 3306). This avoids conflicts with a local MySQL/MariaDB instance using the default host port.
 
-The initialization scripts run when MariaDB first initializes its data directory. Changing an initialization script later does not automatically rerun it. Avoid `docker compose down -v` unless you intentionally want to delete the persisted lab database.
+Initialization scripts run when MariaDB first initializes its data directory. Changing an initialization script later does not automatically rerun it. Avoid `docker compose down -v` unless you intentionally want to delete the persisted lab database.
 
 ## Build the repository
 
@@ -88,7 +85,7 @@ mvn -pl jdbc exec:java -Dexec.mainClass="com.sabeer.database.jdbc.module01.Main"
 
 The JDBC project reads the root `.env` file. Environment variables override values from `.env`. The default database host and port are `localhost:4000`; override them with `DB_HOST` and `DB_PORT` if needed.
 
-See the [JDBC track README](./jdbc/README.md) for module-specific commands.
+See the [JDBC track README](./jdbc/README.md) and [Hibernate track README](./hibernate/README.md) for module-specific guidance.
 
 ## Stop the database
 
